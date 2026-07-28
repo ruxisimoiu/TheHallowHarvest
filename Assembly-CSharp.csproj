@@ -63,6 +63,7 @@
     <Compile Include="Assets/Mod Assets/Mod Resources/Scripts/Platformer/EmitParticlesOnLand.cs" />
     <Compile Include="Assets/Scripts/Mechanics/PatrolPath.cs" />
     <Compile Include="Assets/Scripts/UI/MainUIController.cs" />
+    <Compile Include="Assets/MiscareJucator.cs" />
     <Compile Include="Assets/Scripts/Gameplay/PlayerEnteredDeathZone.cs" />
     <Compile Include="Assets/Scripts/Gameplay/HealthIsZero.cs" />
     <Compile Include="Assets/Scripts/Mechanics/PatrolPath.Mover.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets/Scripts/Core/Simulation.Event.cs" />
     <Compile Include="Assets/Scripts/Mechanics/EnemyController.cs" />
     <Compile Include="Assets/Scripts/Gameplay/PlayerDeath.cs" />
-    <Compile Include="Assets/NewEmptyCSharpScript.cs" />
     <Compile Include="Assets/Scripts/Mechanics/TokenController.cs" />
     <Compile Include="Assets/Scripts/Mechanics/TokenInstance.cs" />
     <Compile Include="Assets/Scripts/Gameplay/PlayerTokenCollision.cs" />
