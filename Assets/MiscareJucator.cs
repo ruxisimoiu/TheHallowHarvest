@@ -9,6 +9,7 @@ public class MiscareJucator : MonoBehaviour
 
     void Update()
     {
+        // am pus branch urile
         // Aici vom adăuga logica de mișcare mai târziu
     }
 }
