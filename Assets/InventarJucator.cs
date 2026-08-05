@@ -1,22 +1,32 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventarJucator : MonoBehaviour
 {
-    // Aici vom adăuga mai târziu o listă reală și legătura cu butoanele de UI
-    
-    public void AdaugaObiectInStorage(TipObiect categorie, string nume, int utilizari, float energie)
+    // o structură în care să avem evidența obiectelor colectate
+    [System.Serializable]
+    public struct ObiectStocat
     {
-        Debug.Log("Added to storage: " + nume);
-        
-        if (categorie == TipObiect.Cutit || categorie == TipObiect.Pusca)
+        public TipObiect categorie;
+        public string nume;
+        public int lovituri;
+        public float energie;
+    }
+
+    public List<ObiectStocat> inventar = new List<ObiectStocat>();
+
+    public void AdaugaObiectInStorage(TipObiect categorie, string nume, int lovituri, float energie)
+    {
+        ObiectStocat obiectNou = new ObiectStocat
         {
-            Debug.Log("It's a weapon with " + utilizari + " uses left.");
-        }
-        else if (categorie == TipObiect.Mancare)
-        {
-            Debug.Log("It's food that will provide " + energie + " energy when consumed.");
-        }
-        
-        // Aici va urma codul care să facă să apară iconița în interfața ta vizuală!
+            categorie = categorie,
+            nume = nume,
+            lovituri = lovituri,
+            energie = energie
+        };
+
+        inventar.Add(obiectNou);
+
+        Debug.Log("Item collected into inventory: " + nume + " | Category: " + categorie);
     }
 }

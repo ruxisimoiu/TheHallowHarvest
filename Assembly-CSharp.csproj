@@ -82,12 +82,14 @@
     <Compile Include="Assets/Scripts/Mechanics/TokenInstance.cs" />
     <Compile Include="Assets/Scripts/Gameplay/PlayerTokenCollision.cs" />
     <Compile Include="Assets/Mod Assets/Mod Resources/Scripts/Platformer/SimpleTrigger.cs" />
+    <Compile Include="Assets/ObiectColectabil.cs" />
     <Compile Include="Assets/Scripts/Mechanics/VictoryZone.cs" />
     <Compile Include="Assets/Scripts/Gameplay/PlayerEnemyCollision.cs" />
     <Compile Include="Assets/Scripts/Mechanics/Health.cs" />
     <Compile Include="Assets/Mod Assets/Mod Resources/Scripts/Backend/TemplateEditorDetection.cs" />
     <Compile Include="Assets/Scripts/Mechanics/GameController.cs" />
     <Compile Include="Assets/Scripts/Gameplay/PlayerLanded.cs" />
+    <Compile Include="Assets/InventarJucator.cs" />
     <Compile Include="Assets/Scripts/Mechanics/KinematicObject.cs" />
     <Compile Include="Assets/Mod Assets/Mod Resources/Scripts/Platformer/PlatformerJumpPad.cs" />
     <Compile Include="Assets/Scripts/View/AnimatedTile.cs" />
