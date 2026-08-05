@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Gameplay/PlayerSpawn.cs" />
+    <Compile Include="Assets/EnergieJucator.cs" />
     <Compile Include="Assets/Scripts/Mechanics/PlayAudioClip.cs" />
     <Compile Include="Assets/Scripts/Core/Simulation.InstanceRegister.cs" />
     <Compile Include="Assets/Mod Assets/Mod Resources/Scripts/Platformer/PlatformerSpeedPad.cs" />
