@@ -1,60 +1,65 @@
 using UnityEngine;
 
-public enum TipObiect { Mancare, Cutit, Pusca }
+public enum TipObiect
+{
+    Cutit,
+    Pusca,
+    Mancare
+}
 
+[RequireComponent(typeof(Collider2D))]
 public class ObiectColectabil : MonoBehaviour
 {
-    [Header("Ce fel de obiect este?")]
-    public TipObiect categoriaObiectului;
-    public string numeObiect = "Nume Obiect";
-    
-    [Header("Dacă este armă:")]
-    public int numarLovituri = 0; 
-    
-    [Header("Dacă este mâncare:")]
-    public float energieOferita = 0f;
+    [Header("Date Obiect")]
+    public TipObiect categorie;
+    public string nume = "Obiect";
+    public int lovituri = 3;
+    public float energie = 25f;
 
-    private bool jucatorulEInZona = false;
-    private InventarJucator inventarulLui;
+    [Header("Vizual")]
+    public SpriteRenderer spriteRenderer;
+
+    private bool jucatorInZona = false;
+    private InventarJucator inventarJucator;
+
+    void Awake()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        col.isTrigger = true;
+
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") || other.GetComponent<InventarJucator>() != null)
+        {
+            jucatorInZona = true;
+            inventarJucator = other.GetComponent<InventarJucator>();
+            Debug.Log($"Apasa 'E' pentru a lua: {nume}");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") || other.GetComponent<InventarJucator>() != null)
+        {
+            jucatorInZona = false;
+            inventarJucator = null;
+        }
+    }
 
     void Update()
     {
-        // Jucătorul apasă E când este deasupra obiectului
-        if (jucatorulEInZona == true && Input.GetKeyDown(KeyCode.E))
+        // Ridicare de pe jos cu tasta E
+        if (jucatorInZona && Input.GetKeyDown(KeyCode.E) && inventarJucator != null)
         {
-            BagaInStorage();
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D altObiect)
-    {
-        if (altObiect.CompareTag("Player"))
-        {
-            jucatorulEInZona = true;
-            inventarulLui = altObiect.GetComponent<InventarJucator>();
-            
-            // Mesajul tradus în engleză
-            Debug.Log("Press E to pick up: " + numeObiect);
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D altObiect)
-    {
-        if (altObiect.CompareTag("Player"))
-        {
-            jucatorulEInZona = false;
-            inventarulLui = null;
-        }
-    }
-
-    void BagaInStorage()
-    {
-        if (inventarulLui != null)
-        {
-            inventarulLui.AdaugaObiectInStorage(categoriaObiectului, numeObiect, numarLovituri, energieOferita);
-            
-            // Distrugem obiectul de pe jos
-            Destroy(gameObject);
+            bool adaugat = inventarJucator.AdaugaObiectInStorage(categorie, nume, lovituri, energie);
+            if (adaugat)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
