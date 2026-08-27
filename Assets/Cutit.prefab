@@ -133,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 24.000286, y: 13.09}
+    oldSize: {x: 4.800057, y: 2.6179998}
     newSize: {x: 24.000286, y: 13.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2378ea4d822d487cc9a60180ce7a34d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObiectColectabil
-  categoriaObiectului: 1
-  numeObiect: Cutit
-  numarLovituri: 5
-  energieOferita: 0
+  categorie: 0
+  nume: Obiect
+  lovituri: 3
+  energie: 25
+  spriteRenderer: {fileID: 0}
